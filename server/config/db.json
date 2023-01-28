@@ -1,0 +1,11 @@
+{
+    "development" : {
+        "database": "fd-fullstack-db",
+        "host": "localhost",
+        "port": 27017
+    },
+    "test": {
+    },
+    "production": {
+    }
+}
