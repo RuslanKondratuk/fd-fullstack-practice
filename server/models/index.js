@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 const db = process.env.ENV_MODE || "development";
+const Chat = require('./Chat')
+const Message = require('./Message')
 
 const CONFIG = require("../config/db.json") [db];
 const User = require('./User')
@@ -12,5 +14,5 @@ mongoose
 })
 
 module.exports = {
-    User
+    User, Chat, Message
 }

@@ -1,0 +1,7 @@
+POST http://localhost:5000/api/chats/ HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "My second Chat",
+    "members": ["63d5497c007eba97fe5e4329", "63d55dec044d4242f1359785"]
+}

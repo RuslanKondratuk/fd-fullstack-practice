@@ -2,6 +2,7 @@ const {User} = require('../models')
 const bcrypt = require ('bcryptjs')
 const NotFoundError = require('../errors/NotFound');
 const InvalidDataError = require('../errors/InvalidDataError');
+const {createToken} = require('../services/tokenService')
 
 module.exports.signUpUser = async (req, res, next) =>  {
     try {
@@ -20,9 +21,9 @@ module.exports.signInUser = async (req, res, next) =>  {
         });
         if(findUser) {
             const result = await bcrypt.compare(password, findUser.passwordHash)
-            console.log(result );
             if(result) {
-                res.status(200).send({data: findUser});
+                const token = await createToken({userId: findUser._id, email: findUser.email})
+                res.status(200).send({data: findUser, token});
             } else {
                 throw new InvalidDataError('Invalid credentials');
             }

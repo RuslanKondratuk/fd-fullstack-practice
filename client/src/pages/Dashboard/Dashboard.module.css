@@ -1,0 +1,18 @@
+.main {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    background-color: beige;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 80vw;
+}
