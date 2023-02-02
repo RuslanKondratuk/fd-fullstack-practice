@@ -1,5 +1,5 @@
 const TokenError = require('../errors/TokenError');
-const {verifyToken} = require ('../services/tokenService');
+const {verifyAccesToken} = require ('../services/tokenService');
 
 
 module.exports.checkToken = async (req, res, next) => {
@@ -9,7 +9,7 @@ module.exports.checkToken = async (req, res, next) => {
             throw new TokenError('You need authorization')
          }
          const [, token] = authorization.split(' ');
-         req.payload = await verifyToken(token);
+         req.payload = await verifyAccesToken(token);
          next();
     } catch (error) {
         next(error)

@@ -8,5 +8,6 @@ const {checkToken} = require('../middleware/checkToken');
 userRouter.post('/sign-up', hashPass, UserController.signUpUser);
 userRouter.post('/sign-in', UserController.signInUser );
 userRouter.get('/',checkToken, UserController.getOneUser);
+userRouter.post('/refresh', UserController.refreshSession)
 
 module.exports = userRouter
